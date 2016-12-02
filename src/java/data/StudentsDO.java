@@ -7,15 +7,8 @@ package data;
 
 /**
  *
- * @author Vini
+ * @author w
  */
-public class professoresDO {
-    private String name;
+public class StudentsDO {
     
-    public void setName(String name){
-        this.name = name;
-    }
-    public String getName(){
-        return name;
-    }
 }
