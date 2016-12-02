@@ -6,9 +6,9 @@ package data;
  * @author Lucas
  */
 public class disciplinesDO {
-    String code;
-    String name;
-    String description;
+    private String code;
+    private String name;
+    private String description;
     
     public void setCode(String code){
         this.code = code;
