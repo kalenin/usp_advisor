@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package data;
 
 /**
@@ -10,5 +6,44 @@ package data;
  * @author w
  */
 public class studentsDO {
+    String num_usp;
+    int entry_year;
+    String name;
+    String email;
+    String password_hash;
     
+    public void setNum_usp(String num_usp){
+        this.num_usp=num_usp;
+    }
+    public String getNum_usp(){
+        return num_usp;
+    }
+    
+    public void setEntry_year(int entry_year){
+        this.entry_year=entry_year;
+    }
+    public int getEntry_year(){
+        return entry_year;
+    }
+    
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    public void setEmail(String email){
+        this.email=email;
+    }
+    public String getEmail(){
+        return email;
+    }
+    
+    public void setPassword_hash(String password_hash){
+        this.password_hash=password_hash;
+    }
+    public String getPassword_hash(){
+        return password_hash;
+    }
 }
