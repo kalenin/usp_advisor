@@ -9,6 +9,6 @@ package data;
  *
  * @author w
  */
-public class StudentsDO {
+public class studentsDO {
     
 }
