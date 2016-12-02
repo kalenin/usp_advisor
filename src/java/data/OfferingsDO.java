@@ -10,5 +10,20 @@ package data;
  * @author Lucas
  */
 public class OfferingsDO {
+    private String semester;
+    private String schedule;
     
+    public void setSemester(String semester){
+        this.semester = semester;
+    }
+    public String getSemester(){
+        return semester;
+    }
+    
+    public void setSchedule(String schedule){
+        this.schedule=schedule;
+    }
+    public String getSchedule(){
+        return schedule;
+    }
 }
