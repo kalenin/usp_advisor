@@ -9,6 +9,6 @@ package java.transacoes;
  *
  * @author Mari
  */
-public class offeringsCO {
+public class OfferingsCo {
     
 }
