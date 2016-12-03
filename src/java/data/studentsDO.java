@@ -6,11 +6,11 @@ package data;
  * @author w
  */
 public class studentsDO {
-    String num_usp;
-    int entry_year;
-    String name;
-    String email;
-    String password_hash;
+    private String num_usp;
+    private int entry_year;
+    private String name;
+    private String email;
+    private String password_hash;
     
     public void setNum_usp(String num_usp){
         this.num_usp=num_usp;
