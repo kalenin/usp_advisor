@@ -5,7 +5,7 @@ package java.data;
  *
  * @author Lucas
  */
-public class disciplinesDO {
+public class DisciplinesDo {
     private int id;
     private String code;
     private String name;
