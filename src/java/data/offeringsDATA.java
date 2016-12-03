@@ -58,11 +58,11 @@ public class offeringsDATA {
         System.out.println("query executada");
         Vector offerings = new Vector();
         while (rs.next()) {
-           disciplinesDO d = new disciplinesDO();
+           offeringsDO d = new offeringsDO();
            d.setId (rs.getInt("id"));
-           d.setDiscipline_id(rs.getString("discipline_id"));
+           d.setDiscipline_id(rs.getInt("discipline_id"));
            System.out.println(" got " + d.getDiscipline_id());
-           d.setDiscipline_id(rs.getString("discipline_id"));
+           d.setDiscipline_id(rs.getInt("discipline_id"));
            offerings.add(d);
         }
         return offerings;
