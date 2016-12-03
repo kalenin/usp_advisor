@@ -17,9 +17,9 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import java.utils.Transacao;
 
-public class evaluationsDATA {
+public class EvaluationsData {
     
-   public void incluir (evaluationsDO evaluation, Transacao tr) throws Exception {
+   public void incluir (EvaluationsDo evaluation, Transacao tr) throws Exception {
        Connection con = tr.obterConexao ();
        String sql = "INSERT INTO evaluations (offering_id, student_id, difficulty, quality) values (?, ?, ?, ?)";
        PreparedStatement ps = con.prepareStatement(sql);
@@ -30,7 +30,7 @@ public class evaluationsDATA {
        int result = ps.executeUpdate();
    }
    
-    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+    public void excluir(DisciplinesDo discipline, Transacao tr) throws Exception {
         excluir(discipline.getId(), tr);
      } 
     
@@ -51,7 +51,7 @@ public class evaluationsDATA {
         System.out.println("query executada");
         Vector evaluation = new Vector();
         while (rs.next()) {
-           evaluationsDO d = new evaluationsDO();
+           EvaluationsDo d = new EvaluationsDo();
            d.setOffering_id (rs.getInt("offering_id"));
            d.setStudent_id (rs.getInt("student_id"));
            d.setDifficulty(rs.getInt("difficulty"));
@@ -70,7 +70,7 @@ public class evaluationsDATA {
         System.out.println("query executada");
         Vector evaluation = new Vector();
         while (rs.next()) {
-           evaluationsDO d = new evaluationsDO();
+           EvaluationsDo d = new EvaluationsDo();
            d.setOffering_id (rs.getInt("offering_id"));
            d.setStudent_id (rs.getInt("student_id"));
            d.setDifficulty(rs.getInt("difficulty"));
