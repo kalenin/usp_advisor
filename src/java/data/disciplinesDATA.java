@@ -33,7 +33,13 @@ public class disciplinesDATA {
      } 
     
     public void excluir (int idobj, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "delete from disciplines where id=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idobj);
+        int result = ps.executeUpdate();
     } // excluir 
+    
     
     public void atualizar(disciplinesDO discipline, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
@@ -63,7 +69,7 @@ public class disciplinesDATA {
     
     public Vector pesquisarPorCode(String code, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
-        String sql = "select * from disciplines where code == '?'";
+        String sql = "select * from disciplines where code like '?'";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, code);
         ResultSet rs = ps.executeQuery();
