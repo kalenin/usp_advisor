@@ -9,9 +9,9 @@ import java.utils.Transacao;
  *
  * @author Lucas
  */
-public class studentsDATA {
+public class StudentsData {
     
-    public void incluir(studentsDO student, Transacao tr) throws Exception {
+    public void incluir(StudentsDo student, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "INSERT INTO students (num_usp, entry_year, name, email, password_hash) values (?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -24,7 +24,7 @@ public class studentsDATA {
         int result = ps.executeUpdate();
     }
     
-    public void excluir(studentsDO student, Transacao tr) throws Exception {
+    public void excluir(StudentsDo student, Transacao tr) throws Exception {
         excluir(student.getId(), tr);
     } 
     
@@ -36,7 +36,7 @@ public class studentsDATA {
         int result = ps.executeUpdate();
     } // excluir 
     
-    public void atualizar(studentsDO student, Transacao tr) throws Exception {
+    public void atualizar(StudentsDo student, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "update students set num_usp=?, entry_year=?, name=?, email=?, password_hash=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -49,14 +49,14 @@ public class studentsDATA {
         int result = ps.executeUpdate();
     } // atualizar
     
-    public studentsDO buscar(int idobj, Transacao tr) throws Exception {
+    public StudentsDo buscar(int idobj, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from students where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, idobj);
         ResultSet rs = ps.executeQuery();
         rs.next();
-        studentsDO student = new studentsDO();
+        StudentsDo student = new StudentsDo();
         student.setId (rs.getInt("id"));
         student.setNum_usp (rs.getString("num_usp"));
         student.setEntry_year (rs.getInt("entry_year"));
@@ -74,7 +74,7 @@ public class studentsDATA {
         System.out.println("query executada");
         Vector students = new Vector();
         while (rs.next()) {
-           studentsDO d = new studentsDO();
+           StudentsDo d = new StudentsDo();
            d.setId(rs.getInt("id"));
            d.setNum_usp(rs.getString("num_usp"));
            d.setEntry_year(rs.getInt("entry_year"));
