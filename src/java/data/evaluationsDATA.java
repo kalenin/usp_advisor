@@ -30,11 +30,16 @@ public class evaluationsDATA {
        int result = ps.executeUpdate();
    }
    
-   public void excluir(evaluationsDO evaluation, Transacao tr) throws Exception {
-        excluir(evaluation.getId(), tr);
+    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+        excluir(discipline.getId(), tr);
      } 
     
     public void excluir (int idobj, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "delete from disciplines where id=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idobj);
+        int result = ps.executeUpdate();
     } // excluir 
     
    public Vector pesquisarPorDifficulty(int difficulty, Transacao tr) throws Exception {

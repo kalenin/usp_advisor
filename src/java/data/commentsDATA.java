@@ -22,10 +22,16 @@ public class commentsDATA {
         int result = ps.executeUpdate();
     }
     
-    public void excluir(commentsDO comment, Transacao tr) throws Exception {
-        excluir(comment.getId(), tr);
-    } 
+    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+        excluir(discipline.getId(), tr);
+     } 
+    
     public void excluir (int idobj, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "delete from disciplines where id=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idobj);
+        int result = ps.executeUpdate();
     } // excluir 
     
     public void atualizar(commentsDO comment, Transacao tr) throws Exception {
@@ -68,7 +74,7 @@ public class commentsDATA {
            d.setOffering_id (rs.getInt("offering_id"));
            d.setStudent_id (rs.getInt("student_id"));
            d.setComment (rs.getString("comment"));
-           System.out.println(" got " + d.getId());
+//           System.out.println(" got " + d.getId());
            comments.add(d);
         }
         return comments;
@@ -88,7 +94,7 @@ public class commentsDATA {
            d.setOffering_id (rs.getInt("offering_id"));
            d.setStudent_id (rs.getInt("student_id"));
            d.setComment (rs.getString("comment"));
-           System.out.println(" got " + d.getId());
+//           System.out.println(" got " + d.getId());
            comments.add(d);
         }
         return comments;
