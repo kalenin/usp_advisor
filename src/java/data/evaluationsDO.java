@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package java.data;
 
 /**
  *
  * @author Lucas
  */
 public class evaluationsDO {
+    private int id;
     private int offering_id;
     private int student_id;
     private int difficulty;
@@ -41,5 +42,12 @@ public class evaluationsDO {
     }
     public int getStudent_id(){
         return student_id;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
     }
 }

@@ -1,5 +1,5 @@
 
-package data;
+package java.data;
 
 /**
  *
@@ -34,7 +34,6 @@ public class disciplinesDO {
     public int getId(){
         return id;
     }
-    
     public void setId(int id){
         this.id = id;
     }

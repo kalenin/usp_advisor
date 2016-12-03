@@ -1,11 +1,12 @@
 
-package data;
+package java.data;
 
 /**
  *
  * @author Lucas
  */
 public class commentsDO {
+    private int id;
     private int offering_id;
     private int student_id;
     private String comment;
@@ -29,5 +30,12 @@ public class commentsDO {
     }
     public int getStudent_id(){
         return student_id;
+    }
+    
+    public void setId(int id){
+        this.id=id;
+    }
+    public int getId(){
+        return id;
     }
 }
