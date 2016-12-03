@@ -21,13 +21,6 @@ public class offeringsDO {
         return semester;
     }
     
-    public void setSchedule(String schedule){
-        this.schedule=schedule;
-    }
-    public String getSchedule(){
-        return schedule;
-    }
-    
     public void setDiscipline_id(int discipline_id){
         this.discipline_id=discipline_id;
     }
