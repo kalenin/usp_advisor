@@ -12,8 +12,8 @@ public class Transacao {
   // connection data
   static final String ODBC_DRIVER = "sun.jdbc.odbc.JdbcOdbcDriver";
   static final String DSN = "jdbc:odbc:pmr2490";
-  static final String USER = "admin";
-  static final String PWD = "";
+  static final String USER = "root";
+  static final String PWD = "lucascotrim";
 
   private Connection _conexao = null;
   private boolean _readOnly = false;

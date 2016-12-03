@@ -10,6 +10,8 @@ package data;
  * @author Lucas
  */
 public class evaluationsDO {
+    private int offering_id;
+    private int student_id;
     private int difficulty;
     private int quality;
     
@@ -25,5 +27,19 @@ public class evaluationsDO {
     }
     public int getQuality(){
         return quality;
+    }
+    
+    public void setOffering_id(int offering_id){
+        this.offering_id=offering_id;
+    }
+    public int getOffering_id(){
+        return offering_id;
+    }
+    
+    public void setStudent_id(int student_id){
+        this.student_id=student_id;
+    }
+    public int getStudent_id(){
+        return student_id;
     }
 }

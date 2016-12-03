@@ -10,6 +10,7 @@ package data;
  * @author Lucas
  */
 public class offeringsDO {
+    private int discipline_id;
     private String semester;
     private String schedule;
     
@@ -25,5 +26,12 @@ public class offeringsDO {
     }
     public String getSchedule(){
         return schedule;
+    }
+    
+    public void setDiscipline_id(int discipline_id){
+        this.discipline_id=discipline_id;
+    }
+    public int getDiscipline_id(){
+        return discipline_id;
     }
 }
