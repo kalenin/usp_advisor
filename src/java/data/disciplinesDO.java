@@ -6,6 +6,7 @@ package data;
  * @author Lucas
  */
 public class disciplinesDO {
+    private int id;
     private String code;
     private String name;
     private String description;
@@ -29,5 +30,12 @@ public class disciplinesDO {
     }
     public String getDescription(){
         return description;
+    }
+    public int getId(){
+        return id;
+    }
+    
+    public void SetId(int id){
+        this.id = id;
     }
 }
