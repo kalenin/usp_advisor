@@ -12,20 +12,12 @@ package data;
 public class offeringsDO {
     private int discipline_id;
     private String semester;
-    private String schedule;
     
     public void setSemester(String semester){
         this.semester = semester;
     }
     public String getSemester(){
         return semester;
-    }
-    
-    public void setSchedule(String schedule){
-        this.schedule=schedule;
-    }
-    public String getSchedule(){
-        return schedule;
     }
     
     public void setDiscipline_id(int discipline_id){
