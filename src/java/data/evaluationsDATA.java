@@ -1,9 +1,10 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package java.data;
 
 /**
  *
@@ -38,7 +39,7 @@ public class evaluationsDATA {
     
    public Vector pesquisarPorDifficulty(int difficulty, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
-        String sql = "select of.semester, di.code, of.id FROM evaluations ev INNER JOIN  offerings of ON of.id = ev.offering_id INNER JOIN disciplines di ON di.id = of.discipline_id WHERE ev.difficulty = ? GROUP BY of.id;";
+        String sql = "select of.semester, di.code, of.id FROM evaluations ev INNER JOIN  offerings of ON of.id = ev.offering_id INNER JOIN disciplines di ON di.id = of.discipline_id WHERE ev.difficulty = 5 GROUP BY of.id;";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, difficulty);
         ResultSet rs = ps.executeQuery();
@@ -57,7 +58,7 @@ public class evaluationsDATA {
 
    public Vector pesquisarPorQuality(int quality, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
-        String sql = "select of.semester, di.code, of.id FROM evaluations ev INNER JOIN  offerings of ON of.id = ev.offering_id INNER JOIN disciplines di ON di.id = of.discipline_id WHERE ev.quality = ? GROUP BY of.id;";
+        String sql = "select of.semester, di.code, of.id FROM evaluations ev INNER JOIN  offerings of ON of.id = ev.offering_id INNER JOIN disciplines di ON di.id = of.discipline_id WHERE ev.quality = 5 GROUP BY of.id;";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, quality);
         ResultSet rs = ps.executeQuery();
@@ -75,4 +76,3 @@ public class evaluationsDATA {
      } // pesquisarPorQuality
     }
     
-
