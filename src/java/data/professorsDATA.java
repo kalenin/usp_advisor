@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package java.data;
 
 import java.sql.*;
 import java.util.*;
@@ -36,7 +36,7 @@ public class professorsDATA {
         String sql = "update professors set name=?, offering_id=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, professor.getName());
-        ps.setString(2, professor.getOffering_id());
+        ps.setInt(2, professor.getOffering_id());
         ps.setInt(3, professor.getId());
         int result = ps.executeUpdate();
      } // atualizar
