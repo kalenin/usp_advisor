@@ -24,12 +24,16 @@ public class professorsDATA {
      int result = ps.executeUpdate();
   }
     
-    public void excluir(professorsDO professor, Transacao tr) throws Exception {
-        excluir(professor.getId(), tr);
+    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+        excluir(discipline.getId(), tr);
      } 
     
     public void excluir (int idobj, Transacao tr) throws Exception {
-    
+        Connection con = tr.obterConexao();
+        String sql = "delete from disciplines where id=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idobj);
+        int result = ps.executeUpdate();
     } // excluir 
     
     public void atualizar(professorsDO professor, Transacao tr) throws Exception {
