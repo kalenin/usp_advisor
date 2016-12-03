@@ -13,9 +13,9 @@ import java.utils.Transacao;
  *
  * @author Vini
  */
-public class professorsDATA {
+public class ProfessorsData {
     
-    public void incluir(professorsDO professor, Transacao tr) throws Exception {
+    public void incluir(ProfessorsDo professor, Transacao tr) throws Exception {
      Connection con = tr.obterConexao();
      String sql = "insert into professors (name, offering_id) values (?, ?)";
      PreparedStatement ps = con.prepareStatement(sql);
@@ -24,7 +24,7 @@ public class professorsDATA {
      int result = ps.executeUpdate();
   }
     
-    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+    public void excluir(DisciplinesDo discipline, Transacao tr) throws Exception {
         excluir(discipline.getId(), tr);
      } 
     
@@ -36,7 +36,7 @@ public class professorsDATA {
         int result = ps.executeUpdate();
     } // excluir 
     
-    public void atualizar(professorsDO professor, Transacao tr) throws Exception {
+    public void atualizar(ProfessorsDo professor, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "update professors set name=?, offering_id=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -46,14 +46,14 @@ public class professorsDATA {
         int result = ps.executeUpdate();
      } // atualizar
 
-    public professorsDO buscar(int idobj, Transacao tr) throws Exception {
+    public ProfessorsDo buscar(int idobj, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from offering_professor where  id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, idobj);
         ResultSet rs = ps.executeQuery();
         rs.next();
-        professorsDO professor = new professorsDO();
+        ProfessorsDo professor = new ProfessorsDo();
         professor.setId (rs.getInt("id"));
         professor.setName (rs.getString("name"));
         professor.setOffering_id (rs.getInt("offering_id"));
@@ -69,7 +69,7 @@ public class professorsDATA {
         System.out.println("query executada");
         Vector professor = new Vector();
         while (rs.next()) {
-           professorsDO d = new professorsDO();
+           ProfessorsDo d = new ProfessorsDo();
            d.setName (rs.getString("name"));
            d.setOffering_id(rs.getInt("offering_id"));
            System.out.println(" got " + d.getName());
