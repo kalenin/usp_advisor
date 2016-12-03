@@ -12,7 +12,6 @@ package data;
 public class offeringsDO {
     private int discipline_id;
     private String semester;
-    private String schedule;
     
     public void setSemester(String semester){
         this.semester = semester;
