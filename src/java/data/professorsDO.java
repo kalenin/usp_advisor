@@ -10,6 +10,7 @@ package data;
  * @author Vini
  */
 public class professorsDO {
+    private int offering_id;
     private String name;
     
     public void setName(String name){
@@ -17,5 +18,12 @@ public class professorsDO {
     }
     public String getName(){
         return name;
+    }
+    
+    public void setOffering_id(int offering_id){
+        this.offering_id=offering_id;
+    }
+    public int getOffering_id(){
+        return offering_id;
     }
 }
