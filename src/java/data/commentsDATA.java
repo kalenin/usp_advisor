@@ -38,4 +38,59 @@ public class commentsDATA {
         ps.setInt(4, comment.getId());
         int result = ps.executeUpdate();
     } // atualizar
+    
+    public commentsDO buscar(int idobj, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "select * from comments where  id=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idobj);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        commentsDO comment = new commentsDO();
+        comment.setId (rs.getInt("id"));
+        comment.setOffering_id (rs.getInt("offering_id"));
+        comment.setStudent_id (rs.getInt("student_id"));
+        comment.setComment (rs.getString("comment"));
+        return comment;
+    } // buscar
+    
+    public Vector pesquisarPorOffering_id(String offering_id, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "select * from comments where offering_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, offering_id);
+        ResultSet rs = ps.executeQuery();
+        System.out.println("query executada");
+        Vector comments = new Vector();
+        while (rs.next()) {
+           commentsDO d = new commentsDO();
+           d.setId (rs.getInt("id"));
+           d.setOffering_id (rs.getInt("offering_id"));
+           d.setStudent_id (rs.getInt("student_id"));
+           d.setComment (rs.getString("comment"));
+           System.out.println(" got " + d.getId());
+           comments.add(d);
+        }
+        return comments;
+     } // pesquisarPorOffering_id
+        
+    public Vector pesquisarPorStudent_id(String student_id, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "select * from comments where student_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, student_id);
+        ResultSet rs = ps.executeQuery();
+        System.out.println("query executada");
+        Vector comments = new Vector();
+        while (rs.next()) {
+           commentsDO d = new commentsDO();
+           d.setId (rs.getInt("id"));
+           d.setOffering_id (rs.getInt("offering_id"));
+           d.setStudent_id (rs.getInt("student_id"));
+           d.setComment (rs.getString("comment"));
+           System.out.println(" got " + d.getId());
+           comments.add(d);
+        }
+        return comments;
+    } // pesquisarPorOffering_id
 }
