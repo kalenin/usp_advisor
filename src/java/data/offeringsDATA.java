@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import java.utils.Transacao;
 
-public class offeringsDATA {
+public class OfferingsData {
   
-    public void incluir(offeringsDO offerings, Transacao tr) throws Exception {
+    public void incluir(OfferingsDo offerings, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "INSERT INTO offerings (discipline_id, semester) values (?, ?)";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -18,7 +18,7 @@ public class offeringsDATA {
         int result = ps.executeUpdate();
      }
 
-    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+    public void excluir(DisciplinesDo discipline, Transacao tr) throws Exception {
         excluir(discipline.getId(), tr);
      } 
     
@@ -30,7 +30,7 @@ public class offeringsDATA {
         int result = ps.executeUpdate();
     } // excluir 
     
-    public void atualizar(offeringsDO offerings, Transacao tr) throws Exception {
+    public void atualizar(OfferingsDo offerings, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "update offerings set discipline_id=?, semester=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -40,14 +40,14 @@ public class offeringsDATA {
         int result = ps.executeUpdate();
      } // atualizar
 
-    public offeringsDO buscar(int idobj, Transacao tr) throws Exception {
+    public OfferingsDo buscar(int idobj, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from offerings where  id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, idobj);
         ResultSet rs = ps.executeQuery();
         rs.next();
-        offeringsDO offerings = new offeringsDO();
+        OfferingsDo offerings = new OfferingsDo();
         offerings.setId (rs.getInt("id"));
         offerings.setSemester (rs.getString("semester"));
         offerings.setDiscipline_id (rs.getInt("Discipline_id"));
@@ -63,7 +63,7 @@ public class offeringsDATA {
         System.out.println("query executada");
         Vector offerings = new Vector();
         while (rs.next()) {
-           offeringsDO d = new offeringsDO();
+           OfferingsDo d = new OfferingsDo();
            d.setId (rs.getInt("id"));
            d.setDiscipline_id(rs.getInt("discipline_id"));
            System.out.println(" got " + d.getDiscipline_id());
@@ -82,7 +82,7 @@ public class offeringsDATA {
         System.out.println("query executada");
         Vector offerings = new Vector();
         while (rs.next()) {
-           offeringsDO d = new offeringsDO();
+           OfferingsDo d = new OfferingsDo();
            d.setId (rs.getInt("id"));
            d.setSemester (rs.getString("semester"));
            System.out.println(" got " + d.getSemester());
