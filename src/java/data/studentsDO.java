@@ -1,11 +1,12 @@
 
-package data;
+package java.data;
 
 /**
  *
  * @author w
  */
 public class studentsDO {
+    private int id;
     private String num_usp;
     private int entry_year;
     private String name;
@@ -45,5 +46,12 @@ public class studentsDO {
     }
     public String getPassword_hash(){
         return password_hash;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
     }
 }
