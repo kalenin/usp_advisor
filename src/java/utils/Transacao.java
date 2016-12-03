@@ -1,48 +1,43 @@
 
 /**
  *
- * @author Lucas
+ * @author Rodrigo
  */
-package utils;
+package java.utils;
 
 import java.sql.*;
 
 public class Transacao {
 
   // connection data
-  static final String ODBC_DRIVER = "sun.jdbc.odbc.JdbcOdbcDriver";
-  static final String DSN = "jdbc:odbc:pmr2490";
-  static final String USER = "root";
-  static final String PWD = "lucascotrim";
-
   private Connection _conexao = null;
   private boolean _readOnly = false;
 
   public void begin() throws Exception{
-      Class.forName(ODBC_DRIVER).newInstance();
-      _conexao = DriverManager.getConnection(DSN,USER,PWD);
+      Class.forName("com.mysql.jdbc.Driver"); 
+      _conexao =DriverManager.getConnection("jdbc:mysql://localhost/teste?" +"user=root&password=246810");
       _conexao.setAutoCommit(false);
-	  _readOnly = false;
+      _readOnly = false;
   } // begin
 
   public void beginReadOnly() throws Exception{
-      Class.forName(ODBC_DRIVER).newInstance();
-      _conexao = DriverManager.getConnection(DSN,USER,PWD);
-	  _readOnly = true;
+      Class.forName("com.mysql.jdbc.Driver"); 
+      _conexao =DriverManager.getConnection("jdbc:mysql://localhost/teste?" +"user=root&password=246810");
+      _readOnly = true;
   } // begin
 
   public void commit() throws Exception {
       if ( !_readOnly) {
          _conexao.commit();
-	  }
-	  _conexao.close();
+      }
+      _conexao.close();
   } // commit
 
   public void rollback() throws Exception {
       if ( !_readOnly) {
          _conexao.rollback();
-	  }
-	  _conexao.close();
+      }
+      _conexao.close();
   } // rollback
 
   public Connection obterConexao() {
