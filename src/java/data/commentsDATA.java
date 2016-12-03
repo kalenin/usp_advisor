@@ -10,8 +10,8 @@ import java.utils.Transacao;
  *
  * @author Lucas
  */
-public class commentsDATA {
-    public void incluir(commentsDO comment, Transacao tr) throws Exception {
+public class CommentsData {
+    public void incluir(CommentsDo comment, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "INSERT INTO comments (offering_id, student_id, comment) values (?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -22,7 +22,7 @@ public class commentsDATA {
         int result = ps.executeUpdate();
     }
     
-    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
+    public void excluir(DisciplinesDo discipline, Transacao tr) throws Exception {
         excluir(discipline.getId(), tr);
      } 
     
@@ -34,7 +34,7 @@ public class commentsDATA {
         int result = ps.executeUpdate();
     } // excluir 
     
-    public void atualizar(commentsDO comment, Transacao tr) throws Exception {
+    public void atualizar(CommentsDo comment, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "update comments set offering_id=?, student_id=?, comment=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -45,14 +45,14 @@ public class commentsDATA {
         int result = ps.executeUpdate();
     } // atualizar
     
-    public commentsDO buscar(int idobj, Transacao tr) throws Exception {
+    public CommentsDo buscar(int idobj, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from comments where  id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, idobj);
         ResultSet rs = ps.executeQuery();
         rs.next();
-        commentsDO comment = new commentsDO();
+        CommentsDo comment = new CommentsDo();
         comment.setId (rs.getInt("id"));
         comment.setOffering_id (rs.getInt("offering_id"));
         comment.setStudent_id (rs.getInt("student_id"));
@@ -69,7 +69,7 @@ public class commentsDATA {
         System.out.println("query executada");
         Vector comments = new Vector();
         while (rs.next()) {
-           commentsDO d = new commentsDO();
+           CommentsDo d = new CommentsDo();
            d.setId (rs.getInt("id"));
            d.setOffering_id (rs.getInt("offering_id"));
            d.setStudent_id (rs.getInt("student_id"));
@@ -89,7 +89,7 @@ public class commentsDATA {
         System.out.println("query executada");
         Vector comments = new Vector();
         while (rs.next()) {
-           commentsDO d = new commentsDO();
+           CommentsDo d = new CommentsDo();
            d.setId (rs.getInt("id"));
            d.setOffering_id (rs.getInt("offering_id"));
            d.setStudent_id (rs.getInt("student_id"));
