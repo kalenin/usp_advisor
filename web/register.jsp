@@ -4,7 +4,7 @@
 </header>
 
 <body bgcolor="white">
-<%@ page import="java.transacoes.Students" %>
+<%@ page import="java.transacoes.students" %>
 <%@ page import="java.data.studentsDO" %>
 
 <! ------------------------------------------------------------>
