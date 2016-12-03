@@ -9,7 +9,7 @@ package java.data;
  *
  * @author Vini
  */
-public class ProfessorsDo {
+public class professorsDO {
     private int id;
     private int offering_id;
     private String name;

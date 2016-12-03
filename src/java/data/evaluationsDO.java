@@ -9,7 +9,7 @@ package java.data;
  *
  * @author Lucas
  */
-public class EvaluationsDo {
+public class evaluationsDO {
     private int id;
     private int offering_id;
     private int student_id;
