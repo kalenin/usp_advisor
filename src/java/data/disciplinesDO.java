@@ -35,7 +35,7 @@ public class disciplinesDO {
         return id;
     }
     
-    public void SetId(int id){
+    public void setId(int id){
         this.id = id;
     }
 }
