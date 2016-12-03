@@ -8,7 +8,7 @@ package java.data;
 
 import java.sql.*;
 import java.util.*;
-import utils.Transacao;
+import java.utils.Transacao;
 /**
  *
  * @author Vini
