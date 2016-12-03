@@ -22,7 +22,7 @@ public class commentsDATA {
         int result = ps.executeUpdate();
     }
     
-    public void excluir(DisciplinesDo discipline, Transacao tr) throws Exception {
+    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
         excluir(discipline.getId(), tr);
      } 
     

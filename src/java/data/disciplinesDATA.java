@@ -15,9 +15,9 @@ import java.utils.Transacao;
  *
  * @author kalenin
  */
-public class DisciplinesData {
+public class disciplinesDATA {
   
-    public void incluir(DisciplinesDo discipline, Transacao tr) throws Exception {
+    public void incluir(disciplinesDO discipline, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "INSERT INTO disciplines (code, name, description) values (?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -28,7 +28,7 @@ public class DisciplinesData {
         int result = ps.executeUpdate();
      }
 
-    public void excluir(DisciplinesDo discipline, Transacao tr) throws Exception {
+    public void excluir(disciplinesDO discipline, Transacao tr) throws Exception {
         excluir(discipline.getId(), tr);
      } 
     
@@ -41,7 +41,7 @@ public class DisciplinesData {
     } // excluir 
     
     
-    public void atualizar(DisciplinesDo discipline, Transacao tr) throws Exception {
+    public void atualizar(disciplinesDO discipline, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "update disciplines set code=?, name=?, description=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -52,14 +52,14 @@ public class DisciplinesData {
         int result = ps.executeUpdate();
      } // atualizar
 
-    public DisciplinesDo buscar(int idobj, Transacao tr) throws Exception {
+    public disciplinesDO buscar(int idobj, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from disciplines where  id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, idobj);
         ResultSet rs = ps.executeQuery();
         rs.next();
-        DisciplinesDo discipline = new DisciplinesDo();
+        disciplinesDO discipline = new disciplinesDO();
         discipline.setId (rs.getInt("id"));
         discipline.setCode (rs.getString("code"));
         discipline.setName (rs.getString("name"));
@@ -76,7 +76,7 @@ public class DisciplinesData {
         System.out.println("query executada");
         Vector disciplines = new Vector();
         while (rs.next()) {
-           DisciplinesDo d = new DisciplinesDo();
+           disciplinesDO d = new disciplinesDO();
            d.setId (rs.getInt("id"));
            d.setCode (rs.getString("code"));
            System.out.println(" got " + d.getCode());

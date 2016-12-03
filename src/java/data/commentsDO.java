@@ -5,7 +5,7 @@ package java.data;
  *
  * @author Lucas
  */
-public class CommentsDo {
+public class commentsDO {
     private int id;
     private int offering_id;
     private int student_id;
