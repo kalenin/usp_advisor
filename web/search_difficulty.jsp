@@ -23,7 +23,7 @@
 %>
         <center>
             You are not logged in<br/>
-            <a href="index.jsp">Please Login</a>
+            <a href="login.jsp">Please Login</a>
         </center>
 <%
     }
