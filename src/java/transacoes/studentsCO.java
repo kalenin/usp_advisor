@@ -70,9 +70,6 @@ public class studentsCO {
 	 return null;
     } // buscar
     
-
-    
-    
     private boolean isEmpty(String s) {
      if (null == s)
        return true;
