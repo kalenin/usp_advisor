@@ -1,5 +1,6 @@
 package java.transacoes;
 
+<<<<<<< HEAD
 import java.utils.*;
 import java.data.offeringsDO;
 import java.data.offeringsDATA;
@@ -102,4 +103,12 @@ public class offeringsCO {
       }
   } // main
   
+=======
+/**
+ *
+ * @author Mari
+ */
+public class offeringsCO {
+    
+>>>>>>> a409dc0c23bd0141e4e9f5a916aa7f77b6f72f68
 }
