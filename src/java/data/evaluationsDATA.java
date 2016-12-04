@@ -53,7 +53,7 @@ public class evaluationsDATA {
         int result = ps.executeUpdate();
      } // atualizar
     
-     public evaluationsDATA buscar(int idobj, Transacao tr) throws Exception {
+     public evaluationsDO buscar(int idobj, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from evaluations where  id=?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -64,7 +64,8 @@ public class evaluationsDATA {
         evaluation.setId (rs.getInt("id"));
         evaluation.setOffering_id (rs.getInt("offering_id"));
         evaluation.setStudent_id (rs.getInt("student_id"));
-        evaluation.setComment (rs.getString("comment"));
+        evaluation.setDifficulty (rs.getInt("difficulty"));
+        evaluation.setQuality (rs.getInt("quality"));
         return evaluation;
     } // buscar
      
