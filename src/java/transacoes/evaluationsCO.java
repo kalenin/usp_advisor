@@ -39,9 +39,8 @@ public class evaluationsCO {
         e.printStackTrace();
     }
     return false;
-    }
+    }//incluir 
     
-    //incluir 
     public boolean atualizar(evaluationsDO evaluation) throws Exception {
         Transacao tr = new Transacao();
             try{
@@ -58,22 +57,103 @@ public class evaluationsCO {
             }
             
             return false;
-    }
+    } //atualizar
     
-    //atualizar
+    public evaluationsDO buscar(int idobj) throws Exception{
+     Transacao tr = new Transacao();
+	 try{
+	   tr.beginReadOnly();
+  	     evaluationsDATA cdata = new evaluationsDATA();
+	     evaluationsDO c = cdata.buscar(idobj, tr);
+	   tr.commit();
+	   return c;
+	 } catch (Exception e) {
+	   tr.rollback();
+	   System.out.println("erro ao buscar avaliacao");
+	   e.printStackTrace();
+	 }
+	 return null;
+    } // buscar
     
-    public Vector pesquisar(int offering_id){
-        if(offering_id == 0){
+    public Vector pesquisarPorOffering_id(int offering_id){
+        if(offering_id <= 0){
             return null;
         }
         
         Transacao tr = new Transacao();
         try{
             tr.beginReadOnly();
-            evaluationsDATA cdata = evaluationsDATA();
-            Vector v = cdata.pesquisarPorDifficulty_id
+            evaluationsDATA cdata = new evaluationsDATA();
+            Vector v = cdata.pesquisarPorOffering_id(offering_id, tr);
+            tr.commit();
+            return v;
+        } catch (Exception e){
+            System.out.println("erro ao pesquisar comentarios do oferecimento: " + offering_id);
+            e.printStackTrace();
         }
+        
+        return null;
     }
+    
+   public Vector pesquisarPorStudent_id(int student_id){
+       if(student_id <= 0){
+           return null;
+       }
+       
+       Transacao tr = new Transacao();
+       try{
+           tr.beginReadOnly();
+           evaluationsDATA cdata = new evaluationsDATA();
+           Vector v = cdata.pesquisarPorStudent_id(student_id, tr);
+            tr.commit();
+            return v;
+       } catch (Exception e){
+           System.out.println("erro ao pesquisar");
+           e.printStackTrace();
+       }
+       return null;
+   }
+   
+   public Vector pesquisarPorDifficulty(int difficulty){
+       if(difficulty <= 0 || difficulty > 5){
+           return null;
+       }
+       
+       Transacao tr = new Transacao();
+       try{
+           tr.beginReadOnly();
+           evaluationsDATA cdata = new evaluationsDATA();
+           Vector v = cdata.pesquisarPorDifficulty(difficulty, tr);
+           tr.commit();
+           return v;
+       } catch (Exception e){
+           System.out.println("Erro ao pesquisar dificuldade");
+           e.printStackTrace();
+       }
+       
+       return null;
+   }
+   
+   public Vector pesquisarPorQuality(int quality){
+       
+       if(quality <= 0 || quality > 5){
+           return null;
+       }
+       
+       Transacao tr = new Transacao();
+       try{
+           tr.beginReadOnly();
+            evaluationsDATA cdata = new evaluationsDATA();
+            Vector v = cdata.pesquisarPorQuality(quality, tr);
+            tr.commit();
+            return v;
+       } catch (Exception e){
+           System.out.println("erro ao pesquisar qualidade");
+           e.printStackTrace();
+       }
+       
+       return null;
+   }
 }
 
 
