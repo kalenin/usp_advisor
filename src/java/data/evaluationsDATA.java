@@ -53,7 +53,26 @@ public class evaluationsDATA {
         int result = ps.executeUpdate();
      } // atualizar
     
-  
+  public Vector pesquisarPorOffering_id(int offering_id, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "select * from evaluations where offering_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, offering_id);
+        ResultSet rs = ps.executeQuery();
+        System.out.println("query executada");
+        Vector evaluations = new Vector();
+        while (rs.next()) {
+           evaluationsDO d = new evaluationsDO();
+           d.setId (rs.getInt("id"));
+           d.setOffering_id (rs.getInt("offering_id"));
+           d.setStudent_id (rs.getInt("student_id"));
+           d.setDifficulty (rs.getInt("difficulty"));
+           d.setQuality (rs.getInt("quality"));
+//           System.out.println(" got " + d.getId());
+           evaluations.add(d);
+        }
+        return evaluations;
+     } // pesquisarPorOffering_id
     
    public Vector pesquisarPorDifficulty(int difficulty, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
