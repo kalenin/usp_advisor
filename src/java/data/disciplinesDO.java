@@ -1,5 +1,5 @@
     
-package java.data;
+package data;
 
 /**
  *

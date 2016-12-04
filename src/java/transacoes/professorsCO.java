@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java.transacoes;
+package transacoes;
 
 /**
  *
  * @author Vini
  */
 
-import java.utils.*;
-import java.data.*;
+import utils.*;
+import data.*;
 import java.util.*;
 
 

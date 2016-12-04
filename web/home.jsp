@@ -13,7 +13,7 @@
     </head>
     <body>
 <%
-    if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
+    if ((session.getAttribute("num_usp") == null) || (session.getAttribute("num_usp") == "")) {
 %>
         <center>
             You are not logged in<br/>

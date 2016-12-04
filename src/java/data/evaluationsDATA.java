@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java.data;
+package data;
 
 /**
  *
@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
-import java.utils.Transacao;
+import utils.Transacao;
 
 public class evaluationsDATA {
     

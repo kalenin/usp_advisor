@@ -4,11 +4,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java.data;
+package data;
 
 import java.sql.*;
 import java.util.*;
-import java.utils.Transacao;
+import utils.Transacao;
 /**
  *
  * @author Vini

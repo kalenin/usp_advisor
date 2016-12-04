@@ -3,7 +3,7 @@
  *
  * @author Rodrigo
  */
-package java.utils;
+package utils;
 
 import java.sql.*;
 

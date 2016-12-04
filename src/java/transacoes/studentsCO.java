@@ -4,10 +4,10 @@
  *
  * @author Lucas
  */
-package java.transacoes;
+package transacoes;
 
-import java.utils.*;
-import java.data.*;
+import utils.*;
+import data.*;
 import java.util.*;
 
 public class studentsCO {
@@ -70,7 +70,7 @@ public class studentsCO {
 	 return null;
     } // buscar
     
-    public studentsDO pesquisarPorNum_usp(String num_usp){
+    public studentsDO pesquisarPorNum_usp(String num_usp){    
         if(isEmpty(num_usp)){
             return null;
         }
@@ -78,7 +78,8 @@ public class studentsCO {
         try{
             tr.beginReadOnly();
             studentsDATA cdata = new studentsDATA ();
-            studentsDO c = cdata.pesquisarPorNum_usp(num_usp, tr);
+            studentsDO c;
+            c = cdata.pesquisarPorNum_usp(num_usp, tr);
             tr.commit();
             return c;
         } catch (Exception e){
