@@ -85,12 +85,13 @@ Senha Atual incorreta!
         
         // senha nova é igual a confirmação da senha nova
 %>
-<form action="./change_password.jsp" method="post">        
-    <input type="submit" name="Mudar Senha" value="mudar_senha" />
-</form>
+            <form action="./change_password.jsp" method="post">        
+            <input type="submit" name="Mudar Senha" value="mudar_senha" />
+            </form>
 <%     } else {
 %>       
         Nova Senha está diferente de Confirmação da Nova Senha!
+<% } %>
 <% } %>
 </body>
 </html>
