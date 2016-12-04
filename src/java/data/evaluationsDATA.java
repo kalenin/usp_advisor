@@ -74,6 +74,27 @@ public class evaluationsDATA {
         return evaluations;
      } // pesquisarPorOffering_id
     
+   public Vector pesquisarPorStudent_id(int student_id, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "select * from evaluations where student_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, student_id);
+        ResultSet rs = ps.executeQuery();
+        System.out.println("query executada");
+        Vector evaluations = new Vector();
+        while (rs.next()) {
+           evaluationsDO d = new evaluationsDO();
+           d.setId (rs.getInt("id"));
+           d.setOffering_id (rs.getInt("offering_id"));
+           d.setStudent_id (rs.getInt("student_id"));
+           d.setDifficulty (rs.getInt("difficulty"));
+           d.setQuality (rs.getInt("quality"));
+//           System.out.println(" got " + d.getId());
+           evaluations.add(d);
+        }
+        return evaluations;
+     } //pesquisar por student_id
+   
    public Vector pesquisarPorDifficulty(int difficulty, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select of.semester, di.code, of.id FROM evaluations ev INNER JOIN  offerings of ON of.id = ev.offering_id INNER JOIN disciplines di ON di.id = of.discipline_id WHERE ev.difficulty = ? GROUP BY of.id;";
