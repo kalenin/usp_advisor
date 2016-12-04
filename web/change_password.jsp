@@ -64,7 +64,7 @@
         Vector studentsCO = tn.pesquisar(password_hash);
     }
     if ((password_hash == null) || (password_hash.size() == 0)) {
-    }
+    
 
     // avisar usuario que a senha está incorreta
 %>
@@ -77,12 +77,12 @@ Senha Atual incorreta!
 
 <input type="hidden" name="action" value="showMudarSenhaConfResults" />
 
-<%
+<%  }
     if (action.equals("showMudarSenhaConfResults")) {
         String new_password = request.getParameter("new_password");
         String new_password_confirmation = request.getParameter("new_password_confirmation");
         if (new_password == new_password_confirmation) {
-        }
+        
         // senha nova é igual a confirmação da senha nova
 %>
 <form action="./change_password.jsp" method="post">        
@@ -90,7 +90,7 @@ Senha Atual incorreta!
 </form>
 <%     } else {
 %>       
-
-
+        Nova Senha está diferente de Confirmação da Nova Senha!
+<% } %>
 </body>
 </html>
