@@ -33,7 +33,7 @@
             <h3>Escolha uma mat&eacute;ria de acordo com sua did&aacute;tica</h3>
             <br>
             <br>
-            <form method="post" action="./search_quality.jsp">
+            <form method="post" action="./search discipline.jsp">
                 <label>Did&aacute;tica:</label>
                 <div>
                     <br>
@@ -76,11 +76,12 @@
                 offeringsDO offer = (offeringsDO)disciplines_list.elementAt(i);
 %>
                 <tr>
-                    <td><%= offer.getSemester() %></td>
-                    <td><%= offer.getDiscipline_id() %></td>
-                    <td><%= offer.getId() %></td>
-                    <td><a href=result_discipline.jsp?action=showEditForm&id=<%= offer.getId() %>> Escolher turma</a>
+                    <td><%= discipline.getSemester() %></td>
+                    <td><%= discipline.getDiscipline_id() %></td>
+                    <td><%= discipline.getId() %></td>
+                    <td><a href=result_discipline.jsp?action=id=<%= discipline.getId() %>> Escolher turma</a>
                 </tr>
+<%              
             }
 %>        
            </table>       

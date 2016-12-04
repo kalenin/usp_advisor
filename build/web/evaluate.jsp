@@ -63,7 +63,7 @@
         java.data.evaluationsDO eval = new java.data.evaluationsDO();
         eval.setDifficulty(difficulty);
         eval.setQuality(quality);
-        eval.setOffering_id(offer.getId());
+        eval.setOffering_id(offer.getDiscipline_id());
         eval.setStudent_id((Integer)session.getAttribute("userid"));
         
         //Crio o objeto de transacoes.avaliacao e chamo a funcao de incluir
