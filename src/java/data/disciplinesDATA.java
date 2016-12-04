@@ -67,22 +67,20 @@ public class disciplinesDATA {
         return discipline;
      } // buscar
     
-    public Vector pesquisarPorCode(String code, Transacao tr) throws Exception {
+    public disciplinesDO pesquisarPorCode(String code, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from disciplines where code like '?'";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, code);
         ResultSet rs = ps.executeQuery();
         System.out.println("query executada");
-        Vector disciplines = new Vector();
-        while (rs.next()) {
-           disciplinesDO d = new disciplinesDO();
-           d.setId (rs.getInt("id"));
-           d.setCode (rs.getString("code"));
-           System.out.println(" got " + d.getCode());
-           d.setName(rs.getString("name"));
-           disciplines.add(d);
-        }
-        return disciplines;
+        rs.next();
+        disciplinesDO d = new disciplinesDO();
+        d.setId (rs.getInt("id"));
+        d.setCode (rs.getString("code"));
+//      System.out.println(" got " + d.getCode());
+        d.setName(rs.getString("name"));
+        d.setDescription(rs.getString("description"));
+        return d;
      } // pesquisarPorCode
 }

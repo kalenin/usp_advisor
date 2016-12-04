@@ -67,17 +67,17 @@ public class disciplinesCO {
 	 return null;
   } // buscar
 
-  public Vector pesquisar(String code) {
+  public disciplinesDO pesquisarPorCode(String code) {
      if ( isEmpty(code) )
         return null;
 
      Transacao tr = new Transacao();
      try {
-	     tr.beginReadOnly();
-           disciplinesDATA cdata = new disciplinesDATA();
-           Vector v = cdata.pesquisarPorCode(code, tr);
-		 tr.commit();
-		 return v;
+	tr.beginReadOnly();
+          disciplinesDATA cdata = new disciplinesDATA();
+          disciplinesDO d = cdata.pesquisarPorCode(code, tr);
+        tr.commit();
+        return d;
      } catch(Exception e) {
          System.out.println("erro ao pesquisar " + code);
          e.printStackTrace();
@@ -93,14 +93,4 @@ public class disciplinesCO {
      return false;
   }
 
-  public static void main(String[] args) {
-      disciplinesCO c = new disciplinesCO();
-      disciplinesDO discipline = new disciplinesDO();
-      try {
-	    discipline = c.buscar(6);
-		System.out.println(discipline.getName());
-      } catch(Exception e) {
-          e.printStackTrace();
-      }
-  } // main
 } // Contato
