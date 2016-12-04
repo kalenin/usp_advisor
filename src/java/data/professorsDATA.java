@@ -60,6 +60,25 @@ public class professorsDATA {
         return professor;
      } // buscar
     
+    public Vector pesquisarPorOffering_id(int offering_id, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "select * from offering_professor where offering_id = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, offering_id);
+        ResultSet rs = ps.executeQuery();
+        System.out.println("query executada");
+        Vector professors = new Vector();
+        while (rs.next()) {
+           professorsDO d = new professorsDO();
+           d.setId (rs.getInt("id"));
+           d.setName (rs.getString("name"));
+           d.setOffering_id (rs.getInt("offering_id"));
+//           System.out.println(" got " + d.getId());
+           professors.add(d);
+        }
+        return professors;
+     } // pesquisarPorOffering_id
+    
     public Vector pesquisarPorNome(String name, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from offering_professor like name '?'";
