@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Busca por Disciplina</title>
+        <title>Busca por Dificuldade</title>
     </head>
     <body>
 <%
@@ -30,14 +30,22 @@
     else {
 %>
         <center>
-            <h3>Digite o código da disciplina</h3>
+            <h3>Escolha a dificuldade desejada da matéria</h3>
             <br>
             <br>
-                <form method="post" action=index.jsp>
-                    Usuário <input type="text" name="usuario" />
-                    Senha <input type="password" name="senha" />
-                    <input type="submit" name="enviar" value="Enviar" />
-                    <input type="hidden" name="campo_controle" />
+                <form method="post" action="result_discipline.jsp">
+                    <label>Dificuldade:</label>
+                    <div>
+                        <br>
+                        <input name="dificuldade" type="radio" value="1"> 1
+                        <input name="dificuldade" type="radio" value="2"> 2
+                        <input name="dificuldade" type="radio" value="3"> 3
+                        <input name="dificuldade" type="radio" value="4"> 4
+                        <input name="dificuldade" type="radio" value="5"> 5
+                    </div>
+                    <br>
+                    <br>
+                    <input type="submit" name="pesquisar" value="Pesquisar" />
                 </form>
         
 <%     if ( null != request.getParameter("pesquisar")) {  
