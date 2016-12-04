@@ -70,6 +70,7 @@ public class studentsCO {
 	 return null;
     } // buscar
     
+<<<<<<< HEAD
     public studentsDO pesquisarPorNum_usp(String num_usp){    
         if(isEmpty(num_usp)){
             return null;
@@ -90,6 +91,8 @@ public class studentsCO {
         return null;
     }
     
+=======
+>>>>>>> 1aa1cd09b789311e78bf9d4a15a2fe240d86426e
     private boolean isEmpty(String s) {
      if (null == s)
        return true;

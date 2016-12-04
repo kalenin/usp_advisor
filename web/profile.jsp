@@ -5,7 +5,7 @@
 
 <body bgcolor="white">
 <%@ page import="java.util.Vector" %>
-<%@ page import="java.transacoes.studentsCO" %>
+<%@ page import="java.transacoes.StudentsCO" %>
 <%@ page import="java.data.studentsDO" %>
 
 
@@ -22,8 +22,8 @@
 Perfil de <%= num_usp %>
 
 <%    
-    java.transacoes.studentsCO tn = new java.transacoes.studentsCO();
-    Vector students = tn.buscar(num_usp); //search students by num_usp
+    java.transacoes.StudentsCO tn = new java.transacoes.StudentsCO();
+    Vector students = tn.pesquisar(num_usp); //search students by num_usp
 %>
           <table>
              <tr>

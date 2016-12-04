@@ -1,1 +1,0 @@
-java.transacoes.OfferingsCo

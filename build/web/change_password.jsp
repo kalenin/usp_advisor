@@ -1,3 +1,4 @@
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : change_password
     Created on : 03/12/2016, 18:02:52
@@ -59,13 +60,8 @@
 %>
 
 <%    if (action.equals("showMudarSenhaResults")) {
-        String password_hash = request.getParameter("password_hash");
-        java.transacoes.studentsCO tn = new java.transacoes.studentsCO();
-        Vector studentsCO = tn.pesquisar(password_hash);
-    }
-    if ((password_hash == null) || (password_hash.size() == 0)) {
-    
-
+        String senha_atual = request.getParameter("senha_atual");
+        
     // avisar usuario que a senha está incorreta
 %>
 Senha Atual incorreta!
@@ -88,8 +84,22 @@ Senha Atual incorreta!
             <form action="./change_password.jsp" method="post">        
             <input type="submit" name="Mudar Senha" value="mudar_senha" />
             </form>
-<%     } else {
-%>       
+<%     
+       if (action.equals("updateValues")) {
+       String nome = request.getParameter("nome");
+       String telefone = request.getParameter("telefone");
+       int id = Integer.parseInt(request.getParameter("id"));
+       transacoes.Contato tn = new transacoes.Contato();
+       data.ContatoDO contato = new data.ContatoDO();
+       contato.setId(id);
+       contato.setNome(nome);
+       contato.setTelefone(telefone); 
+       boolean result = false;
+       try {
+          result = tn.atualizar(contato);
+       } catch (Exception e) {
+%>}
+<% } else {%>       
         Nova Senha está diferente de Confirmação da Nova Senha!
 <% } %>
 <% } %>
