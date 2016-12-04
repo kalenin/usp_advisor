@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 
 <%@ page import="java.util.Vector" %>
-<%@ page import="java.transacoes.DisciplinesCo" %>
+<%@ page import="java.transacoes.disciplinesCO" %>
 <%@ page import="java.data.disciplinesDO" %>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
         
 <%     if ( null != request.getParameter("pesquisar")) {  
        String dificulty_search = request.getParameter("dificuldade");
-       java.transacoes.DisciplinesCo tn = new java.transacoes.DisciplinesCo();
+       java.transacoes.disciplinesCO tn = new java.transacoes.disciplinesCO();
        Vector disciplines = tn.pesquisar(dificulty_search);
        if ( (disciplines == null) || (disciplines.size() == 0)) {
          // avisar usuario que nao há disciplinas com este nome
@@ -69,8 +69,8 @@
 <%           for(int i = 0; i < disciplines.size(); i++) {
              disciplinesDO disciplina = (disciplinesDO)disciplines.elementAt(i);
 %>              <tr>
-                  <td><%= disciplina.getcode() %></td>
-                  <td><%= disciplina.getname() %></td>
+                  <td><%= disciplina.getCode() %></td>
+                  <td><%= disciplina.getName() %></td>
                 </tr>        
 <%           } // for i      
 %>        </table>            
