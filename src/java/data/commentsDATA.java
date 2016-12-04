@@ -60,11 +60,11 @@ public class commentsDATA {
         return comment;
     } // buscar
     
-    public Vector pesquisarPorOffering_id(String offering_id, Transacao tr) throws Exception {
+    public Vector pesquisarPorOffering_id(int offering_id, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from comments where offering_id = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, offering_id);
+        ps.setInt(1, offering_id);
         ResultSet rs = ps.executeQuery();
         System.out.println("query executada");
         Vector comments = new Vector();
@@ -80,11 +80,11 @@ public class commentsDATA {
         return comments;
      } // pesquisarPorOffering_id
         
-    public Vector pesquisarPorStudent_id(String student_id, Transacao tr) throws Exception {
+    public Vector pesquisarPorStudent_id(int student_id, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from comments where student_id = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, student_id);
+        ps.setInt(1, student_id);
         ResultSet rs = ps.executeQuery();
         System.out.println("query executada");
         Vector comments = new Vector();

@@ -54,11 +54,11 @@ public class offeringsDATA {
         return offerings;
      } // buscar
     
-    public Vector pesquisarPorDiscipline_id(String discipline_id, Transacao tr) throws Exception {
+    public Vector pesquisarPorDiscipline_id(int discipline_id, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from offerings where code == '?'";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, discipline_id);
+        ps.setInt(1, discipline_id);
         ResultSet rs = ps.executeQuery();
         System.out.println("query executada");
         Vector offerings = new Vector();
