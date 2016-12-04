@@ -65,25 +65,20 @@ public class studentsDATA {
         return student;
      } // buscar
     
-    public Vector pesquisarPorNum_usp(String num_usp, Transacao tr) throws Exception {
+    public studentsDO pesquisarPorNum_usp(String num_usp, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select * from students where num_usp like '?'";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, num_usp);
         ResultSet rs = ps.executeQuery();
         System.out.println("query executada");
-        Vector students = new Vector();
-        while (rs.next()) {
-           studentsDO d = new studentsDO();
-           d.setId(rs.getInt("id"));
-           d.setNum_usp(rs.getString("num_usp"));
-           d.setEntry_year(rs.getInt("entry_year"));
-           d.setName(rs.getString("name"));
-           d.setEmail(rs.getString("email"));
-           d.setPassword_hash(rs.getString("password_hash"));
-//         System.out.println(" got " + d.getNum_usp());
-           students.add(d);
-        }
-        return students;
-     } // pesquisarPorCode
+        rs.next();
+        studentsDO student = new studentsDO();
+        student.setId (rs.getInt("id"));
+        student.setNum_usp (rs.getString("num_usp"));
+        student.setEntry_year (rs.getInt("entry_year"));
+        student.setName (rs.getString("name"));
+        student.setPassword_hash(rs.getString("pasword_hash"));
+        return student;
+    }// pesquisarPorCode
 }
