@@ -68,8 +68,8 @@ public class commentsCO {
 	 return null;
     } // buscar
     
-    public Vector pesquisar(int offering_id) {
-     if ( offering_id==0 )
+    public Vector pesquisarPorOffering_id(int offering_id) {
+     if ( offering_id<=0 )
         return null;
 
      Transacao tr = new Transacao();
@@ -85,6 +85,24 @@ public class commentsCO {
      }
      return null;
   } // pesquisar
+    
+    public Vector pesquisarPorStudent_id(int student_id) {
+     if ( student_id<=0 )
+        return null;
+
+     Transacao tr = new Transacao();
+     try {
+	   tr.beginReadOnly();
+           commentsDATA cdata = new commentsDATA();
+           Vector v = cdata.pesquisarPorStudent_id(student_id, tr);
+		 tr.commit();
+		 return v;
+     } catch(Exception e) {
+         System.out.println("erro ao pesquisar comentarios do aluno: " + student_id);
+         e.printStackTrace();
+     }
+     return null;
+    } // pesquisar
     
     private boolean isEmpty(String s) {
      if (null == s)

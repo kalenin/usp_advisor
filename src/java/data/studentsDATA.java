@@ -65,11 +65,11 @@ public class studentsDATA {
         return student;
      } // buscar
     
-    public Vector pesquisarPorNome(String name, Transacao tr) throws Exception {
+    public Vector pesquisarPorNum_usp(String num_usp, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
-        String sql = "select * from students where name like '?'";
+        String sql = "select * from students where num_usp like '?'";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, name);
+        ps.setString(1, num_usp);
         ResultSet rs = ps.executeQuery();
         System.out.println("query executada");
         Vector students = new Vector();

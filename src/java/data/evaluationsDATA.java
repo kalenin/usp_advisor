@@ -42,6 +42,19 @@ public class evaluationsDATA {
         int result = ps.executeUpdate();
     } // excluir 
     
+    public void atualizar(evaluationsDO evaluation, Transacao tr) throws Exception {
+        Connection con = tr.obterConexao();
+        String sql = "update evaluation set offering_id=?, =?, student_id=? difficulty=? quality=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, evaluation.getOffering_id());
+        ps.setInt(2, evaluation.getStudent_id());     
+        ps.setInt(3, evaluation.getDifficulty());
+        ps.setInt(4, evaluation.getQuality());
+        int result = ps.executeUpdate();
+     } // atualizar
+    
+  
+    
    public Vector pesquisarPorDifficulty(int difficulty, Transacao tr) throws Exception {
         Connection con = tr.obterConexao();
         String sql = "select of.semester, di.code, of.id FROM evaluations ev INNER JOIN  offerings of ON of.id = ev.offering_id INNER JOIN disciplines di ON di.id = of.discipline_id WHERE ev.difficulty = ? GROUP BY of.id;";
