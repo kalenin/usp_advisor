@@ -54,9 +54,9 @@
 <%    if (action.equals("showMudarEmailResults")) {
         String email = request.getParameter("new_email");
         java.transacoes.studentsCO tn = new java.transacoes.studentsCO();
-        java.data.studentDO aluno = new java.data.studentDO();
+        java.data.studentsDO aluno = new java.data.studentsDO();
         aluno.setEmail(email);
-        if(tn.atualizar()) {
+        if(tn.atualizar(aluno)) {
 %>
 <p>Deu bom</p>
 <%
