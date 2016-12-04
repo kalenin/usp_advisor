@@ -62,8 +62,11 @@
         String password_hash = request.getParameter("password_hash");
         java.transacoes.studentsCO tn = new java.transacoes.studentsCO();
         Vector studentsCO = tn.pesquisar(password_hash);
-        if ((password_hash == null) || (password_hash.size() == 0)) {
-            // avisar usuario que a senha está incorreta
+    }
+    if ((password_hash == null) || (password_hash.size() == 0)) {
+    }
+
+    // avisar usuario que a senha está incorreta
 %>
 Senha Atual incorreta!
 <form action="./change_password.jsp" method="post">
