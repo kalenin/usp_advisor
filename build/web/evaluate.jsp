@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.data.evaluationsDO" %>
 <%@ page import="java.data.offeringsDO" %>
-<%@ page import= "search_quality.jsp" %>
+<%@ page import="search_quality.jsp" %>
 
 
 <!DOCTYPE html>

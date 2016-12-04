@@ -70,6 +70,25 @@ public class studentsCO {
 	 return null;
     } // buscar
     
+    public studentsDO pesquisarPorNum_usp(String num_usp){
+        if(isEmpty(num_usp)){
+            return null;
+        }
+        Transacao tr = new Transacao();
+        try{
+            tr.beginReadOnly();
+            studentsDATA cdata = new studentsDATA ();
+            studentsDO c = cdata.pesquisarPorNum_usp(num_usp, tr);
+            tr.commit();
+            return c;
+        } catch (Exception e){
+            System.out.println("erro ao pesquisar alunos: " + num_usp);
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+    
     private boolean isEmpty(String s) {
      if (null == s)
        return true;

@@ -1,9 +1,10 @@
 <%-- 
     Document   : show_comments
-    Created on : Dec 4, 2016, 3:09:37 AM
-    Author     : Lucas
+    Created on : 04/12/2016, 02:22:35
+    Author     : w
 --%>
 
+<<<<<<< HEAD
 <html>
 <header>
   <title>Comentários</title>
@@ -146,4 +147,16 @@
 %>
 
 </body>
+=======
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+>>>>>>> 1b521f488b2e3b9b6375ecfeb13d91666dc396c5
 </html>
