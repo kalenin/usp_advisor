@@ -22,8 +22,8 @@
     if ((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) {
 %>
         <center>
-            You are not logged in<br/>
-            <a href="login.jsp">Please Login</a>
+            Você não está logado<br/>
+            <a href="login.jsp">Execute o login</a>
         </center>
 <%
     }
