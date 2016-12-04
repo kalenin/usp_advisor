@@ -12,22 +12,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Mudar Senha</title>
-        
-<%     
-       String action = request.getParameter("action");
-       if ( null == action ) {
-          action = "showMudarSenhaForm";
-%>    
-    
-<form action="./change_password.jsp" method="post">
-<%
-    // verificando login
-    if ( session.getAttribute("num_usp") == null) {
-       pageContext.forward("login.jsp");
-    }
 
-%>
-    
+        <%
+            String action = request.getParameter("action");
+            if (null == action) {
+                action = "showMudarSenhaForm";
+        %>    
+
+    <form action="./change_password.jsp" method="post">
+        <%
+            // verificando login
+            if (session.getAttribute("num_usp") == null) {
+                pageContext.forward("login.jsp");
+            }
+
+        %>
+
 
     </head>
     <body>
@@ -52,46 +52,42 @@
                 </tr>
             </tbody>
         </table>
-	<input type="hidden" name="action" value="showMudarSenhaResults" />
+        <input type="hidden" name="action" value="showMudarSenhaResults" />
 </form>
-<%        
-       } 
+<%    }
 
 %>
-   
-<%
-     if (action.equals("showMudarSenhaResults")) {
-       String password_hash = request.getParameter("password_hash");
-       java.transacoes.studentsCO tn = new java.transacoes.studentsCO();
-       Vector studentsCO = tn.pesquisar(password_hash);
-       if ( (password_hash == null) || (password_hash.size() == 0)) { 
-           // avisar usuario que a senha está incorreta
+
+<%    if (action.equals("showMudarSenhaResults")) {
+        String password_hash = request.getParameter("password_hash");
+        java.transacoes.studentsCO tn = new java.transacoes.studentsCO();
+        Vector studentsCO = tn.pesquisar(password_hash);
+        if ((password_hash == null) || (password_hash.size() == 0)) {
+            // avisar usuario que a senha está incorreta
 %>
-            Senha Atual incorreta!
-            <form action="./change_password.jsp" method="post">
-             <input type="submit" name="voltar" value="Voltar" />
-          </form>
-   <%     } else
-           {
+Senha Atual incorreta!
+<form action="./change_password.jsp" method="post">
+    <input type="submit" name="voltar" value="Voltar" />
+</form>
+<%     } else {
 %>
-                
-        <input type="hidden" name="action" value="showMudarSenhaConfResults" />
-            
+
+<input type="hidden" name="action" value="showMudarSenhaConfResults" />
+
 <%
-        if (action.equals ("showMudarSenhaConfResults")) {
+    if (action.equals("showMudarSenhaConfResults")) {
         String new_password = request.getParameter("new_password");
         String new_password_confirmation = request.getParameter("new_password_confirmation");
         if (new_password == new_password_confirmation) {
         }
         // senha nova é igual a confirmação da senha nova
 %>
-     <form action="./change_password.jsp" method="post">        
+<form action="./change_password.jsp" method="post">        
     <input type="submit" name="Mudar Senha" value="mudar_senha" />
-     </form>
-   <%     } else
-           {
+</form>
+<%     } else {
 %>       
-        
+
 
 </body>
 </html>
