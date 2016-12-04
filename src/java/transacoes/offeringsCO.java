@@ -1,6 +1,5 @@
 package java.transacoes;
 
-<<<<<<< HEAD
 import java.utils.*;
 import java.data.offeringsDO;
 import java.data.offeringsDATA;
@@ -66,8 +65,8 @@ public class offeringsCO {
 	 return null;
   } // buscar
 
-  public Vector pesquisar(String discipline_id) {
-     if ( isEmpty(discipline_id) )
+  public Vector pesquisar(int discipline_id) {
+     if ( discipline_id==0 )
         return null;
 
      Transacao tr = new Transacao();
@@ -102,13 +101,4 @@ public class offeringsCO {
           e.printStackTrace();
       }
   } // main
-  
-=======
-/**
- *
- * @author Mari
- */
-public class offeringsCO {
-    
->>>>>>> a409dc0c23bd0141e4e9f5a916aa7f77b6f72f68
 }
