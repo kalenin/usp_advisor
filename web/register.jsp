@@ -4,7 +4,7 @@
 </header>
 
 <body bgcolor="white">
-<%@ page import="java.transacoes.students" %>
+<%@ page import="java.transacoes.studentsCO" %>
 <%@ page import="java.data.studentsDO" %>
 
 <! ------------------------------------------------------------>
@@ -12,7 +12,7 @@
 
 <%     if ( null == request.getParameterValues("incluir") ) {
 %>
-       <form action="./insert.jsp" method="post">
+       <form action="./register.jsp" method="post">
 <%
     // VERIFICACAO MANUAL DO LOGIN
     if (session.getAttribute("userid") == null) {
@@ -37,12 +37,12 @@
                <td><input type="text" name="name" />
             </tr>
             <tr>
-               <td>Ano de Entrada</td>
-               <td><input type="text" name="ent" />
+               <td>Email: </td>
+               <td><input type="text" name="email" />
             </tr>
             <tr>
-               <td>Ano de Entrada</td>
-               <td><input type="text" name="entry_year" />
+               <td>Senha: </td>
+               <td><input type="text" name="password_hash" />
             </tr>
           </table>
           <input type="submit" name="incluir" value="incluir" />
@@ -54,23 +54,30 @@
 <!--   se nao for o request inicial, acionar a transacao de negocio -->
 
 
-<%     String nome = request.getParameter("nome");
-       String telefone = request.getParameter("telefone");
-       transacoes.Contato tn = new transacoes.Contato();
-       data.ContatoDO contato = new data.ContatoDO();
-       contato.setNome(nome);
-       contato.setTelefone(telefone); 
-       if ( tn.incluir(contato)) {
+<%     String num_usp = request.getParameter("num_usp");
+       String entry_year = request.getParameter("entry_year");
+       String name = request.getParameter("name");
+       String email = request.getParameter("email");
+       String password_hash = request.getParameter("password_hash");
+       transacoes.StudentsCo tn = new transacoes.StudentsCo();
+       java.data.studentsDO student = new java.data.studentsDO();
+       student.setNum_usp(num_usp);
+       student.setEntry_year(Integer.parseInt(entry_year));
+       student.setName(name);
+       student.setEmail(email);
+       student.setPassword_hash(password_hash);
+       
+       if (tn.incluir(student)) {
          // avisar usuario que transacao foi feita com sucesso
 %>
-          Transação realizada com sucesso!
-          <form action="./main.jsp" method="post">
+          Cadastro realizada com sucesso!
+          <form action="./home.jsp" method="post">
              <input type="submit" name="voltar" value="Voltar" />
           </form>
 <%     } else {
 %>
           Erro ao incluir usuário            
-          <form action="./insert.jsp" method="post">
+          <form action="./register.jsp" method="post">
              <input type="submit" name="retry" value="Repetir" />
           </form>
 <%     }
